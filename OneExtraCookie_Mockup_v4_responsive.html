@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Extra Cookie</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #F9F5EE;
+      --cream-mid:  #F2EBE0;
+      --cream-drk:  #E8DDD0;
+      --charcoal:   #2E2620;
+      --char-mid:   #5A4E44;
+      --char-lt:    #8A7B70;
+      --pink:       #C07B8A;
+      --pink-lt:    #EDD5DB;
+      --pink-drk:   #A3606F;
+      --sage:       #8EA878;
+      --sage-lt:    #D6E8CE;
+      --border:     rgba(46,38,32,0.1);
+      --pad:        clamp(20px, 5vw, 80px);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream-drk);
+      color: var(--charcoal);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+    }
+    h1 { font-size: clamp(34px, 6vw, 56px); }
+    h2 { font-size: clamp(26px, 4vw, 38px); }
+    h3 { font-size: clamp(18px, 3vw, 24px); }
+    em { font-style: italic; color: var(--pink); }
+
+    .eyebrow {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--char-lt);
+      margin-bottom: 12px;
+    }
+    .eyebrow-sage { color: var(--sage); }
+
+    .pink-rule {
+      width: 36px; height: 2px;
+      background: var(--pink-lt);
+      border-radius: 1px;
+      margin: 18px 0;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      padding: 13px 32px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      border-radius: 2px;
+      transition: all 0.28s cubic-bezier(0.25,1,0.5,1);
+    }
+    .btn-pink  { background: var(--pink); color: #fff; }
+    .btn-pink:hover  { background: var(--pink-drk); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(192,123,138,0.3); }
+    .btn-ghost { background: transparent; color: var(--charcoal); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-1px); }
+    .btn-full  { width: 100%; text-align: center; display: block; }
+
+    /* ── WAVE DIVIDERS ── */
+    .wave { line-height: 0; overflow: hidden; display: block; }
+    .wave svg { display: block; width: 100%; }
+
+    /* ── PLACEHOLDER ── */
+    .img-ph {
+      /* background-image: url(one-cookie/hero-image.png);    */
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+       color: var(--char-lt); font-size: 12px; text-align: center;
+    }
+    .img-ph i { font-size: 28px; opacity: 0.35; }
+
+    /* ══════════════════════════════════
+       NAV
+    ══════════════════════════════════ */
+    .nav {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 0 var(--pad);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky; top: 0; z-index: 300;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-style: italic; font-weight: 400;
+      color: var(--charcoal); letter-spacing: 0.01em;
+      text-decoration: none;
+      
+    }
+
+    .logo{
+      width: fit-content;
+      height: 150px;
+    }
+    .nav-logo strong { font-style: normal; font-weight: 500; color: var(--pink); }
+
+    .nav-links {
+      list-style: none;
+      display: flex; align-items: center; gap: 28px;
+    }
+    .nav-links a {
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--char-mid); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--pink) !important;
+      color: #fff !important;
+      padding: 8px 18px; border-radius: 2px;
+    }
+    .nav-cta:hover { background: var(--pink-drk) !important; transform: translateY(-1px); }
+
+    /* hamburger — hidden on desktop */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--charcoal); border-radius: 1px;
+      transition: all 0.3s;
+    }
+
+    /* mobile nav drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed; top: 60px; left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 20px var(--pad) 28px;
+      z-index: 290;
+      flex-direction: column; gap: 0;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer li { list-style: none; border-bottom: 1px solid var(--border); }
+    .nav-drawer li:last-child { border-bottom: none; margin-top: 16px; }
+    .nav-drawer a {
+      display: block; padding: 14px 0;
+      font-size: 13px; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--char-mid); text-decoration: none;
+    }
+    .nav-drawer .nav-cta { text-align: center; border-radius: 2px; padding: 13px; }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 520px;
+    }
+    .hero-left {
+      padding: clamp(48px, 8vw, 96px) var(--pad);
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--cream);
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--char-lt); margin-bottom: 16px;
+    }
+
+    .hero-image{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+
+    }
+    .sage-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--sage); flex-shrink: 0;
+    }
+    .hero-sub {
+      font-size: 15px; color: var(--char-mid);
+      line-height: 1.72; margin: 16px 0 32px;
+      max-width: 380px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-right {
+      background-color: var(--cream-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    /* ══════════════════════════════════
+       ABOUT
+    ══════════════════════════════════ */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+      background: var(--cream-mid);
+    }
+    .about-img {
+      background: var(--cream-drk);
+      
+      min-height: 400px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-content {
+      padding: clamp(40px, 6vw, 72px) var(--pad);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .about-content p { font-size: 15px; color: var(--char-mid); line-height: 1.78; margin-top: 14px; }
+    .about-sig { margin-top: 28px; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--pink); }
+
+    /* ══════════════════════════════════
+       GALLERY
+    ══════════════════════════════════ */
+    .gallery {
+      padding: clamp(48px, 7vw, 80px) var(--pad);
+      background: #fff;
+      border-top: 1px solid var(--border);
+    }
+    .gallery-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 16px;
+      margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .gallery-track {
+      display: flex; gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-thumb {
+      flex: 0 0 calc(25% - 9px);
+      aspect-ratio: 1;
+      background: var(--cream-mid); border-radius: 3px;
+      scroll-snap-align: start;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: var(--char-lt); font-size: 11px; gap: 5px;
+      transition: transform 0.25s;
+      cursor: pointer;
+    }
+
+    .gallery-cookie {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 3px;
+    }
+
+
+    .gallery-thumb:hover { transform: scale(1.02); }
+    .gallery-thumb i { font-size: 20px; opacity: 0.35; }
+    .gallery-controls {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 20px;
+    }
+    .gallery-dots { display: flex; gap: 6px; align-items: center; }
+    .gallery-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--cream-drk); cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .gallery-dot.active { background: var(--pink); transform: scale(1.3); }
+    .gallery-arrows { display: flex; gap: 8px; }
+    .gallery-arrow {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border); border-radius: 50%;
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14px; color: var(--char-mid);
+      transition: all 0.2s;
+    }
+    .gallery-arrow:hover { border-color: var(--pink); color: var(--pink); }
+    .gallery-cta { text-align: center; margin-top: 36px; padding-top: 36px; border-top: 1px solid var(--border); }
+
+    /* ══════════════════════════════════
+       SOCIAL STRIP
+    ══════════════════════════════════ */
+    .social-strip {
+      padding: 20px var(--pad);
+      background: var(--cream-mid);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .social-strip p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--char-mid); }
+    .social-icons { display: flex; gap: 10px; flex-shrink: 0; }
+    .social-icon {
+      width: 34px; height: 34px;
+      border: 1px solid var(--border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--char-mid); font-size: 15px;
+      background: var(--cream); transition: all 0.2s;
+    }
+    .social-icon:hover { border-color: var(--pink); color: var(--pink); }
+
+    /* ══════════════════════════════════
+       PRICING
+    ══════════════════════════════════ */
+    .pricing {
+      padding: clamp(48px, 7vw, 80px) var(--pad);
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+    .pricing-intro { max-width: 520px; margin-bottom: 44px; }
+    .pricing-intro p { margin-top: 14px; font-size: 14px; color: var(--char-mid); line-height: 1.75; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-bottom: 20px;
+    }
+    .pricing-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(46,38,32,0.07); }
+    .pricing-card.featured { border-color: var(--pink); border-width: 1.5px; }
+    .pricing-img {
+      height: 120px; background: var(--cream-mid);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: var(--char-lt); font-size: 11px; gap: 4px;
+    }
+    .pricing-img i { font-size: 22px; opacity: 0.35; }
+    .pricing-img.rose { background: var(--pink-lt); }
+    .pricing-body { padding: 20px 22px 24px; }
+    .pricing-badge { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); font-weight: 500; margin-bottom: 6px; }
+    .pricing-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; margin-bottom: 8px; }
+    .pricing-desc { font-size: 13px; color: var(--char-mid); line-height: 1.62; margin-bottom: 16px; }
+    .pricing-price { font-size: 21px; font-weight: 500; }
+    .pricing-price small { font-size: 12px; font-weight: 400; color: var(--char-lt); }
+    .drop-row {
+      grid-column: 1 / -1;
+      background: var(--cream); border: 1px dashed var(--sage);
+      border-radius: 4px; padding: 22px 24px;
+      display: flex; gap: 20px; align-items: center;
+    }
+    .drop-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--sage-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: var(--sage); flex-shrink: 0;
+    }
+    .drop-row h3 { font-size: 18px; margin-bottom: 4px; }
+    .drop-row p { font-size: 13px; color: var(--char-mid); line-height: 1.6; margin-top: 4px; }
+    .pricing-cta { text-align: center; margin-top: 36px; }
+
+    /* ══════════════════════════════════
+       TESTIMONIAL
+    ══════════════════════════════════ */
+    .testimonial {
+      background: var(--pink);
+      padding: clamp(56px, 8vw, 88px) var(--pad);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .testimonial::before {
+      content: '\201C'; position: absolute; top: -20px; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif; font-size: 200px;
+      color: rgba(255,255,255,0.07); line-height: 1; pointer-events: none;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 300; font-style: italic; color: #fff;
+      line-height: 1.5; max-width: 600px;
+      margin: 0 auto 20px; position: relative;
+    }
+    .testimonial-author { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+
+    /* ══════════════════════════════════
+       HOW / AVAILABILITY
+    ══════════════════════════════════ */
+    .how {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+      background: var(--cream);
+    }
+    .avail-col {
+      padding: clamp(40px, 6vw, 72px) var(--pad);
+      border-right: 1px solid var(--border);
+    }
+    .cal-ph {
+      margin-top: 24px; background: var(--cream-mid); border-radius: 4px;
+      height: 190px; border: 1px dashed var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 6px; color: var(--char-lt); font-size: 13px;
+    }
+    .cal-ph i { font-size: 26px; opacity: 0.35; }
+    .avail-note { margin-top: 14px; font-size: 13px; color: var(--char-lt); font-style: italic; line-height: 1.65; }
+    .steps-col { padding: clamp(40px, 6vw, 72px) var(--pad); }
+    .step-list { margin-top: 28px; display: flex; flex-direction: column; gap: 24px; }
+    .step-item { display: flex; gap: 16px; align-items: flex-start; }
+    .step-num {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1px solid var(--pink);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: var(--pink); font-weight: 500;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .step-content h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .step-content p { font-size: 13px; color: var(--char-mid); line-height: 1.62; }
+    .steps-cta { margin-top: 32px; }
+
+    /* ══════════════════════════════════
+       FAQs
+    ══════════════════════════════════ */
+    .faqs {
+      padding: clamp(48px, 7vw, 80px) var(--pad);
+      background: var(--cream-mid); border-top: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr 2fr; gap: 56px; align-items: start;
+    }
+    .faq-side p { margin-top: 16px; font-size: 14px; color: var(--char-mid); line-height: 1.7; }
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; cursor: pointer; }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 500; gap: 12px; }
+    .faq-q i { font-size: 16px; color: var(--pink); transition: transform 0.25s; flex-shrink: 0; }
+    .faq-a { font-size: 13px; color: var(--char-mid); line-height: 1.68; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, margin-top 0.25s; }
+    .faq-item.open .faq-a { max-height: 220px; margin-top: 10px; }
+    .faq-item.open .faq-q i { transform: rotate(45deg); }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    .footer {
+      background: var(--charcoal);
+      padding: clamp(40px, 6vw, 64px) var(--pad) 28px;
+      color: #C4B8AE;
+    }
+    /* .footer-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 44px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px;
+    } */
+
+  .footer-grid {
+    display: grid; 
+    grid-template-columns: 1.4fr 1fr 1fr; 
+    gap: 44px;
+    align-items: start; /* Ensures all 3 columns align nicely at the top baseline */
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.07); 
+    margin-bottom: 34px;
+}
+    /* .footer-logo { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 20px; 
+      font-style: italic; 
+      color: var(--cream); 
+      margin-bottom: 12px; 
+      display:flex;
+      flex-direction: column;
+    } */
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 12px;
+    
+  }
+
+.footer-logo img {
+  max-width: 140px; /* Clean bounds for your branding image */
+  background-color: #42372e; 
+  height: 140px;
+  
+  display:block; 
+  margin-bottom:12px;
+}
+
+
+    .footer-logo strong { font-style: normal; color: var(--pink); }
+    .footer-tagline { font-size: 13px; color: #9B8E84; line-height: 1.68; margin-bottom: 22px; width: 70%; }
+    .footer-socials { display: flex; gap: 8px; }
+    .footer-soc-icon {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: #9B8E84; font-size: 13px; transition: all 0.2s;
+    }
+    .footer-soc-icon:hover { border-color: var(--pink); color: var(--pink); }
+    .footer-col h5 { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); font-weight: 500; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 13px; color: #9B8E84; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-contact-txt { font-size: 13px; color: #9B8E84; line-height: 1.7; margin-bottom: 18px; }
+    .footer-cta-stack { display: flex; flex-direction: column; gap: 8px; }
+    .footer-btn {
+      display: block; text-align: center;
+      padding: 10px 16px; font-size: 11px; letter-spacing: 0.1em;
+      text-transform: uppercase; font-weight: 500; border-radius: 2px;
+      text-decoration: none; font-family: 'DM Sans', sans-serif; transition: all 0.22s;
+    }
+    .footer-btn-pink { background: var(--pink); color: #fff; }
+    .footer-btn-pink:hover { background: var(--pink-drk); }
+    .footer-btn-ghost { border: 1px solid rgba(255,255,255,0.18); color: #C4B8AE; }
+    .footer-btn-ghost:hover { border-color: var(--pink); color: var(--pink); }
+    .footer-bottom { display: flex; justify-content: space-between; font-size: 11px; color: #6B5E56; flex-wrap: wrap; gap: 6px; }
+
+    /* ══════════════════════════════════
+       ORDER MODAL
+    ══════════════════════════════════ */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(46,38,32,0.55);
+      z-index: 1000; align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: var(--cream); max-width: 660px; width: 100%;
+      max-height: 92vh; overflow-y: auto;
+      padding: clamp(24px, 4vw, 48px);
+      border-radius: 4px; position: relative;
+      box-shadow: 0 24px 60px rgba(46,38,32,0.2);
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 20px;
+      background: none; border: none; font-size: 26px;
+      color: var(--char-lt); cursor: pointer; line-height: 1;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+    .form-full { grid-column: 1/-1; }
+    .form-group label {
+      display: block; font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--char-lt); font-weight: 500; margin-bottom: 6px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: #fff; border: 1px solid var(--border);
+      border-radius: 2px; padding: 10px 14px; font-size: 14px;
+      font-family: 'DM Sans', sans-serif; color: var(--charcoal);
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--pink); }
+    .form-group textarea { resize: none; height: 90px; }
+    .form-submit { grid-column: 1/-1; text-align: right; padding-top: 8px; }
+
+    /* ══════════════════════════════════
+       MOBILE — ≤ 768px
+    ══════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* Nav */
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      /* Hero — stack vertically */
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 48px var(--pad) 40px; }
+      .hero-sub { max-width: 100%; }
+      .hero-right { min-height: 260px; }
+
+      /* About — stack, image on top */
+      .about { grid-template-columns: 1fr; }
+      .about-img { min-height: 240px; order: -1; }
+      .about-content { padding: 40px var(--pad); }
+
+      /* Gallery — 2 thumbs per row on mobile */
+      .gallery-thumb { flex: 0 0 calc(50% - 6px); }
+
+      /* Gallery header — stack */
+      .gallery-header { flex-direction: column; align-items: flex-start; }
+      .gallery-header .btn-ghost { align-self: flex-start; }
+
+      /* Social strip — stack */
+      .social-strip { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+      /* Pricing — single column */
+      .pricing-grid { grid-template-columns: 1fr; }
+      .drop-row { flex-direction: column; text-align: center; }
+      .drop-icon { margin: 0 auto; }
+
+      /* How / Availability — stack */
+      .how { grid-template-columns: 1fr; }
+      .avail-col { border-right: none; border-bottom: 1px solid var(--border); }
+
+      /* FAQs — stack */
+      .faqs { grid-template-columns: 1fr; gap: 32px; }
+
+      /* Footer — stack */
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 4px; }
+
+      /* Modal form — single column */
+      .form-grid { grid-template-columns: 1fr; }
+      .form-submit { text-align: center; }
+      .form-submit .btn { width: 100%; }
+
+      /* Buttons full width on mobile hero */
+      .hero-btns .btn { flex: 1; text-align: center; }
+    }
+
+    /* ── small phones ── */
+    @media (max-width: 400px) {
+      .pricing-card { border-radius: 3px; }
+      .testimonial::before { font-size: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <!-- <a class="nav-logo" href="#">one <strong>extra</strong> cookie</a> -->
+  <image class="logo" src="one-cookie/logo.png" alt="One Extra Cookie logo" ">
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#availability">Availability</a></li>
+    <li><a href="#" class="nav-cta modal-open">Request an Order</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<ul class="nav-drawer" id="navDrawer">
+  <li><a href="#about">About</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#pricing">Pricing</a></li>
+  <li><a href="#availability">Availability</a></li>
+  <li><a href="#" class="nav-cta modal-open">Request an Order</a></li>
+</ul>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="sage-dot"></span>Custom Cookies · South Olathe, KS</div>
+    <h1>Cookies that taste<br>as good as they <em>look.</em></h1>
+    <p class="hero-sub">Handcrafted, individually designed sugar cookies made to order — for every occasion that deserves a little something extra.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn btn-pink modal-open">Request an Order</a>
+      <a href="#gallery" class="btn btn-ghost">View Gallery</a>
+    </div>
+  </div>
+  <div class="hero-right">
+  
+      <!-- <i class="ti ti-photo" aria-hidden="true"></i> -->
+       <img class="hero-image" src="one-cookie/hero-cookie.jpg" alt="One Extra Cookie hero cookie photo" >
+      <!-- <span>Hero cookie photo</span> -->
+    
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave" style="background:var(--cream);">
+  <svg viewBox="0 0 960 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,18 C160,36 320,0 480,18 C640,36 800,0 960,18 L960,36 L0,36 Z" fill="#F2EBE0"/>
+  </svg>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img">
+    <img src="one-cookie/cookie boss.jpg" alt="Photo of Tracy, the cookie boss" style="width:100%; height:100%; object-fit:cover; object-position:center;">
+    <!-- <div class="img-ph"><i class="ti ti-user" aria-hidden="true"></i><span>Tracy's photo</span></div> -->
+  </div>
+  <div class="about-content">
+    <span class="eyebrow">About One Extra Cookie</span>
+    <h2>Made with intention.<br><em>Every single time.</em></h2>
+    <div class="pink-rule"></div>
+    <p>I've been creating custom decorated sugar cookies since 2019 — pouring the same level of care into every single order, whether it's a dozen birthday cookies or a corporate gifting set of 200.</p>
+    <p style="margin-top:14px;">Every cookie is baked fresh using a treasured family recipe, heat-sealed to lock in flavor, and designed from scratch to match your vision.</p>
+    <div class="about-sig">— Tracy</div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave" style="background:var(--cream-mid);">
+  <svg viewBox="0 0 960 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,0 C160,36 320,0 480,18 C640,36 800,0 960,18 L960,36 L0,36 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div>
+      <span class="eyebrow">Gallery</span>
+      <h2 style="font-size:clamp(22px,4vw,32px);">Every detail<br><em>tells a story.</em></h2>
+    </div>
+    <a href="#" class="btn btn-ghost" style="font-size:11px; padding:9px 18px; white-space:nowrap;">See all on Instagram</a>
+  </div>
+  <div class="gallery-track" id="galleryTrack">
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery1.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery2.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery3.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery4.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery5.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery6.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery7.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery8.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery9.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery10.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery1.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+    <div class="gallery-thumb">
+      <img class="gallery-cookie" src="one-cookie/gallery5.jpg">
+      <!-- <span>Photo 1</span> -->
+    </div>
+  </div>
+  <div class="gallery-controls">
+    <div class="gallery-dots" id="galleryDots">
+      <div class="gallery-dot active" data-idx="0"></div>
+      <div class="gallery-dot" data-idx="1"></div>
+    </div>
+    <div class="gallery-arrows">
+      <button class="gallery-arrow" id="galPrev" aria-label="Previous"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+      <button class="gallery-arrow" id="galNext" aria-label="Next"><i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <div class="gallery-cta">
+    <a href="#" class="btn btn-pink modal-open">Request an Order</a>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip" style="border-top:1px solid var(--border);">
+  <p>See even more behind-the-scenes on social.</p>
+  <div class="social-icons">
+    <div class="social-icon">
+      <a href="https://www.instagram.com/oneextracookie/" target="_blank" rel="noopener noreferrer" style="color:inherit;">
+        <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+      </a>
+      
+    </div>
+    <div class="social-icon"><i class="ti ti-brand-facebook" aria-hidden="true"></i></div>
+  </div>
+</div>
+
+<!-- WAVE -->
+<div class="wave" style="background:#fff;">
+  <svg viewBox="0 0 960 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,18 C240,0 480,36 720,18 C840,9 900,27 960,18 L960,36 L0,36 Z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-intro">
+    <span class="eyebrow">Pricing & Menu</span>
+    <h2>Three tiers.<br><em>Every occasion covered.</em></h2>
+    <p>Cookies are priced by design complexity — you only pay for the detail your event calls for. Every order includes fresh-baked treats in individual heat-sealed packaging.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-img"><i class="ti ti-cookie" aria-hidden="true"></i><span>Tier 1 photo</span></div>
+      <div class="pricing-body">
+        <div class="pricing-badge">Tier 1 · Sugar Cookies</div>
+        <div class="pricing-name">Simply Sweet</div>
+        <p class="pricing-desc">Clean single-color designs. Perfect for large quantities or casual celebrations.</p>
+        <div class="pricing-price"><small>From</small> $4.50 <small>/ cookie</small></div>
+      </div>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-img rose"><i class="ti ti-cookie" aria-hidden="true"></i><span>Tier 2 photo</span></div>
+      <div class="pricing-body">
+        <div class="pricing-badge">Tier 2 · Most Popular</div>
+        <div class="pricing-name">Detailed Design</div>
+        <p class="pricing-desc">Multi-color with piped details and texture. Ideal for birthdays, showers, and themed events.</p>
+        <div class="pricing-price"><small>From</small> $7.50 <small>/ cookie</small></div>
+      </div>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-img"><i class="ti ti-cookie" aria-hidden="true"></i><span>Tier 3 photo</span></div>
+      <div class="pricing-body">
+        <div class="pricing-badge">Tier 3 · Sugar Cookies</div>
+        <div class="pricing-name">Signature Artisan</div>
+        <p class="pricing-desc">Hand-painted, portrait-style, or highly detailed work. For weddings and corporate gifting.</p>
+        <div class="pricing-price"><small>From</small> $12.00 <small>/ cookie</small></div>
+      </div>
+    </div>
+    <div class="drop-row">
+      <div class="drop-icon"><i class="ti ti-sparkles" aria-hidden="true"></i></div>
+      <div>
+        <span class="eyebrow eyebrow-sage" style="margin-bottom:4px;">New · Expanding Menu</span>
+        <h3>Gourmet Drop Cookies & Custom Treats</h3>
+        <p>Now offering rich gourmet drop cookies in rotating seasonal flavors and specialty add-on treats. Reach out for current flavor lists and quotes.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pricing-cta">
+    <a href="#" class="btn btn-pink modal-open">Request an Order</a>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <p class="testimonial-quote">"I gave Tracy a broad general topic and she blew every single one of my expectations out of the water. She researched designs, created something completely unique — and they tasted even better than they looked."</p>
+  <div class="testimonial-author">Mary Beth &nbsp;·&nbsp; Returning Customer</div>
+</section>
+
+<!-- WAVE -->
+<div class="wave" style="background:var(--pink);">
+  <svg viewBox="0 0 960 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,0 C160,36 480,0 720,24 C840,32 900,10 960,18 L960,36 L0,36 Z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- HOW / AVAILABILITY -->
+<section class="how" id="availability">
+  <div class="avail-col">
+    <span class="eyebrow">Availability</span>
+    <h2 style="font-size:clamp(22px,3.5vw,30px);">Check my<br><em>calendar.</em></h2>
+    <div class="cal-ph">
+      <i class="ti ti-calendar" aria-hidden="true"></i>
+      <span>Embedded availability calendar</span>
+      <span style="font-size:11px;opacity:0.6;">(public calendar plugin)</span>
+    </div>
+    <p class="avail-note">Since all my orders are custom, I can't guarantee your date until I've reviewed your submission. I'll follow up within 48 hours.</p>
+  </div>
+  <div class="steps-col">
+    <span class="eyebrow">How to Order</span>
+    <h2 style="font-size:clamp(22px,3.5vw,30px);">Three simple<br><em>steps.</em></h2>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Fill out the order form</h4>
+          <p>Tell me about your event, date, how many cookies you need, and any design inspiration.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>I'll confirm & collect your deposit</h4>
+          <p>I'll follow up personally to confirm availability, finalize your design, and secure your date.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Pick up your order</h4>
+          <p>Your freshly baked, individually wrapped cookies will be ready at your confirmed pickup time.</p>
+        </div>
+      </div>
+    </div>
+    <div class="steps-cta">
+      <a href="#" class="btn btn-pink btn-full modal-open">Request an Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="faqs" id="faqs">
+  <div class="faq-side">
+    <span class="eyebrow">FAQs</span>
+    <h2 style="font-size:clamp(22px,3.5vw,30px);">Questions<br><em>answered.</em></h2>
+    <div class="pink-rule"></div>
+    <p>Have something else in mind? Reach out any time at oneextracookie@gmail.com.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">What is your pricing? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">My cookies are priced in three tiers based on design complexity — starting at $4.50 per cookie for simple designs, up to $12.00 for signature artisan work. Minimum order quantities apply; see the full breakdown in the Pricing section above.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you have availability for my date? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Check my availability calendar above. Since all orders are custom, I can't confirm your date until I've reviewed your submission. I respond to all requests within 48 hours.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Where are you located? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">I'm based in South Olathe, Kansas. All orders are available for local pickup. Shipping is available at the customer's cost, though local pickup is always preferred for freshness and condition.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    
+    <div class="footer-logo">
+      <img src="one-cookie/logo.png" alt="One Extra Cookie logo">
+      <div style="margin-bottom:4px;">one <strong>extra</strong> cookie</div>
+      <p class="footer-tagline">
+        Custom decorated sugar cookies, handcrafted in South Olathe, KS for the moments that deserve something truly special.
+      </p>
+      <div class="footer-socials">
+        <div class="footer-soc-icon">
+          <a href="https://www.instagram.com/oneextracookie/" target="_blank" rel="noopener noreferrer" style="color:inherit;">
+            <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="footer-soc-icon">
+          <i class="ti ti-brand-facebook" aria-hidden="true"></i>
+        </div>
+      </div>
+  </div> 
+      
+      
+    
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Get in Touch</h5>
+      <p class="footer-contact-txt">South Olathe, Kansas<br>oneextracookie@gmail.com</p>
+      <div class="footer-cta-stack">
+        <a href="#" class="footer-btn footer-btn-pink modal-open">Request an Order</a>
+        <a href="#availability" class="footer-btn footer-btn-ghost">Check Availability</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© One Extra Cookie 2026 · All Rights Reserved</span>
+    <span>Site by HeiPro Digital</span>
+  </div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <span class="eyebrow">Place Your Order</span>
+    <h2 style="font-size:clamp(22px,4vw,30px); margin-top:6px;">Let's make something<br><em>beautiful.</em></h2>
+    <p style="margin-top:10px; font-size:14px; color:var(--char-mid); line-height:1.7;">Fill out the form below and I'll follow up within 48 hours to confirm availability and get started on your design.</p>
+    <div class="form-grid">
+      <div class="form-group"><label>Your name</label><input type="text" placeholder="First & last name"></div>
+      <div class="form-group"><label>Email address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Phone number</label><input type="tel" placeholder="(555) 000-0000"></div>
+      <div class="form-group"><label>Event date</label><input type="date"></div>
+      <div class="form-group"><label>Preferred pickup date</label><input type="date"></div>
+      <div class="form-group"><label>Backup pickup date (optional)</label><input type="date"></div>
+      <div class="form-group">
+        <label>Order type</label>
+        <select>
+          <option value="">Select type...</option>
+          <option>Decorated sugar cookies</option>
+          <option>Gourmet drop cookies</option>
+          <option>Add-on treats</option>
+          <option>Multiple types</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Pricing tier</label>
+        <select>
+          <option value="">Select tier...</option>
+          <option>Tier 1 — Simply Sweet ($4.50/cookie)</option>
+          <option>Tier 2 — Detailed Design ($7.50/cookie)</option>
+          <option>Tier 3 — Signature Artisan ($12.00/cookie)</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Event type</label><input type="text" placeholder="Birthday, wedding, baby shower..."></div>
+      <div class="form-group"><label>Theme / color scheme</label><input type="text" placeholder="Floral, woodland, pastel pink..."></div>
+      <div class="form-group form-full"><label>Additional details</label><textarea placeholder="Number of cookies, special designs, dietary needs, inspiration images..."></textarea></div>
+      <div class="form-submit"><button class="btn btn-pink" id="submitBtn" type="button">Submit Order Request</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('navDrawer');
+  hamburger.addEventListener('click', () => {
+    drawer.classList.toggle('open');
+  });
+  // Close drawer on any drawer link click
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => drawer.classList.remove('open'));
+  });
+
+  // Gallery carousel
+  const track = document.getElementById('galleryTrack');
+  const dots = document.querySelectorAll('.gallery-dot');
+  let currentPage = 0;
+
+  function getThumbsPerPage() {
+    return window.innerWidth <= 768 ? 2 : 4;
+  }
+
+  function scrollToPage(page) {
+    const tpp = getThumbsPerPage();
+    const thumbs = track.querySelectorAll('.gallery-thumb');
+    const totalPages = Math.ceil(thumbs.length / tpp);
+    currentPage = Math.max(0, Math.min(page, totalPages - 1));
+    const thumbWidth = thumbs[0].offsetWidth + 12;
+    track.scrollTo({ left: currentPage * tpp * thumbWidth, behavior: 'smooth' });
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentPage));
+  }
+
+  document.getElementById('galNext').addEventListener('click', () => scrollToPage(currentPage + 1));
+  document.getElementById('galPrev').addEventListener('click', () => scrollToPage(currentPage - 1));
+  dots.forEach(d => d.addEventListener('click', () => scrollToPage(+d.dataset.idx)));
+
+  // Modal
+  const modal = document.getElementById('orderModal');
+
+  document.querySelectorAll('.modal-open').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      drawer.classList.remove('open');
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    alert("Thank you! Tracy will follow up within 48 hours.");
+    closeModal();
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

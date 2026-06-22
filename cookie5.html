@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Extra Cookie — Premium Full-Width Production Mockup</title>
+  
+  <!-- CSS Tabler Icons Link for Placeholders -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* FULL-WIDTH FRAMEWORK CONFIGURATION */
+    body {
+      background: #FAF8F5;
+      overflow-x: hidden;
+    }
+
+    .oec-page {
+      font-family: 'DM Sans', sans-serif;
+      background: #FAF8F5;
+      color: #2A2218;
+      line-height: 1.6;
+      font-size: 15px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* GLOBAL CONTAINER WIDTH BALANCE */
+    .oec-container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* NAV SECTION */
+    .oec-nav {
+      background: rgba(250, 248, 245, 0.95);
+      border-bottom: 0.5px solid #E8E2DA;
+      height: 80px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    
+    .oec-nav .oec-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    
+    .oec-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .oec-logo-img {
+      height: 52px;
+      width: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    .oec-logo {
+      font-family: 'Literata', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #2A2218;
+      font-style: italic;
+    }
+    .oec-logo span { font-style: normal; color: #C07B8A; }
+    
+    .oec-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    
+    /* NAV LINK INTERACTIVE HOVER ACTIONS */
+    .oec-nav-links li a:not(.oec-nav-btn) {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6B5C4E;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      position: relative;
+      padding: 8px 0;
+      transition: color 0.3s ease;
+    }
+    .oec-nav-links li a:not(.oec-nav-btn):hover {
+      color: #C07B8A;
+    }
+    .oec-nav-links li a:not(.oec-nav-btn)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background-color: #C07B8A;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .oec-nav-links li a:not(.oec-nav-btn):hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    .oec-nav-btn {
+      background: #C07B8A !important;
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 2px;
+      font-size: 12px !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      font-weight: 500 !important;
+      text-decoration: none;
+    }
+
+    /* FULL-WIDTH SPLIT HERO CONFIGURATION */
+    .oec-hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      min-height: 560px;
+      background: #FAF8F5;
+      border-bottom: 0.5px solid #E8E2DA;
+    }
+    .oec-hero-left {
+      padding: 80px 8% 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 740px;
+      justify-self: end;
+    }
+    .oec-hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9B7E6E;
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+    .oec-hero-h1 {
+      font-family: 'Literata', serif;
+      font-size: 46px;
+      font-weight: 300;
+      line-height: 1.15;
+      color: #2A2218;
+      margin-bottom: 22px;
+      letter-spacing: -0.01em;
+    }
+    .oec-hero-h1 em {
+      font-style: italic;
+      color: #C07B8A;
+    }
+    .oec-hero-sub {
+      font-size: 16px;
+      color: #6B5C4E;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .oec-hero-right {
+      background: #EDE2D8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .oec-hero-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #9B7E6E;
+      font-size: 13px;
+    }
+    .oec-hero-placeholder i { font-size: 36px; opacity: 0.5; }
+
+    /* UTILITY BUTTON CONTROLS */
+    .btn-primary {
+      display: inline-block;
+      background: #C07B8A;
+      color: #fff;
+      padding: 13px 32px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: #2A2218;
+      padding: 12px 32px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: 0.5px solid #2A2218;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* SECTION IDENTIFICATION LABELS */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9B7E6E;
+      font-weight: 500;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Literata', serif;
+      font-size: 34px;
+      font-weight: 300;
+      line-height: 1.25;
+      color: #2A2218;
+      letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; color: #C07B8A; }
+
+    /* FULL-WIDTH SPLIT ABOUT SECTION */
+    .oec-about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 0.5px solid #E8E2DA;
+    }
+    .oec-about-img {
+      background: #D9C8BA;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9B7E6E;
+      font-size: 13px;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .oec-about-img i { font-size: 32px; opacity: 0.5; }
+    .oec-about-content {
+      padding: 80px 48px 80px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 680px;
+    }
+    .oec-about-content p {
+      font-size: 16px;
+      color: #5A4E44;
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+    .oec-about-sig {
+      margin-top: 32px;
+      font-family: 'Literata', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: #C07B8A;
+    }
+
+    /* GALLERY DISPLAY WRAPPERS */
+    .oec-gallery {
+      padding: 80px 0;
+      border-top: 0.5px solid #E8E2DA;
+      background: #fff;
+    }
+    .oec-gallery-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    .oec-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .gallery-cell {
+      aspect-ratio: 1;
+      background: #EDE2D8;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #B89C8C;
+      font-size: 11px;
+      text-align: center;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .gallery-cell i { font-size: 24px; opacity: 0.45; }
+    .oec-gallery-cta {
+      text-align: center;
+      padding-top: 20px;
+    }
+    .view-more-toggle {
+      background: none;
+      border: none;
+      color: #9B7E6E;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0 auto 32px;
+    }
+
+    /* MIDDLE CONTENT SOCIAL STRIP */
+    .oec-social-strip {
+      border-top: 0.5px solid #E8E2DA;
+      border-bottom: 0.5px solid #E8E2DA;
+      padding: 28px 0;
+      background: #FAF8F5;
+    }
+    .oec-social-strip .oec-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .oec-social-strip p {
+      font-family: 'Literata', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: #5A4E44;
+    }
+    .social-icons { display: flex; gap: 14px; }
+    .social-icon {
+      width: 38px; height: 38px;
+      border: 0.5px solid #D0C4BA;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #6B5C4E;
+      font-size: 18px;
+    }
+
+    /* PRICING PLANS COMPONENT GRID */
+    .oec-pricing {
+      padding: 80px 0;
+      border-top: 0.5px solid #E8E2DA;
+      background: #FAF8F5;
+    }
+    .oec-pricing-intro {
+      max-width: 540px;
+      margin-bottom: 48px;
+    }
+    .oec-pricing-intro p {
+      margin-top: 16px;
+      font-size: 15px;
+      color: #6B5C4E;
+      line-height: 1.7;
+    }
+    .oec-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .pricing-card {
+      background: #fff;
+      border: 0.5px solid #E8E2DA;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .pricing-card-img {
+      height: 160px;
+      background: #EDE2D8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #B89C8C;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 11px;
+    }
+    .pricing-card-img i { font-size: 26px; opacity: 0.45; }
+    .pricing-card-body {
+      padding: 24px;
+    }
+    .pricing-tier-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #C07B8A;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .pricing-card-title {
+      font-family: 'Literata', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #2A2218;
+      margin-bottom: 10px;
+    }
+    .pricing-card-desc {
+      font-size: 14px;
+      color: #6B5C4E;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .pricing-price {
+      font-size: 22px;
+      font-weight: 500;
+      color: #2A2218;
+    }
+    .pricing-price span {
+      font-size: 12px;
+      font-weight: 400;
+      color: #9B7E6E;
+      margin-left: 2px;
+    }
+
+    /* NESTED EXPANSION OFFER CONTAINER */
+    .oec-drop-cookies-row {
+      grid-column: 1 / -1;
+      background: #FFF;
+      border: 0.5px dashed #C07B8A;
+      border-radius: 4px;
+      padding: 32px;
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .drop-cookie-icon-box {
+      height: 110px;
+      background: #F4EAE6;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #C07B8A;
+      font-size: 11px;
+      gap: 4px;
+    }
+
+    /* CUSTOMER TESTIMONIAL BRAND RIBBON */
+    .oec-testimonial {
+      background: #C07B8A;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .oec-testimonial-quote {
+      font-family: 'Literata', serif;
+      font-size: 24px;
+      font-weight: 300;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto 28px;
+    }
+    .oec-testimonial-author {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* SCHEDULING CALENDAR + STEPS COLUMN ARRANGEMENT */
+    .oec-how {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 0.5px solid #E8E2DA;
+    }
+    .oec-availability {
+      padding: 80px 8% 80px 48px;
+      border-right: 0.5px solid #E8E2DA;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .oec-avail-inner { max-width: 500px; width: 100%; }
+    
+    .oec-calendar-placeholder {
+      margin-top: 28px;
+      background: #EDE2D8;
+      border-radius: 4px;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #9B7E6E;
+      font-size: 13px;
+    }
+    .oec-calendar-placeholder i { font-size: 32px; opacity: 0.4; }
+    .oec-avail-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #9B7E6E;
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .oec-steps {
+      padding: 80px 48px 80px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .oec-steps-inner { max-width: 500px; width: 100%; }
+    
+    .step-list {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .step-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 0.5px solid #C07B8A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #C07B8A;
+      flex-shrink: 0;
+      font-weight: 500;
+      margin-top: 1px;
+    }
+    .step-content h4 {
+      font-size: 15px;
+      font-weight: 500;
+      color: #2A2218;
+      margin-bottom: 4px;
+    }
+    .step-content p {
+      font-size: 14px;
+      color: #6B5C4E;
+      line-height: 1.6;
+    }
+    .oec-steps-cta {
+      margin-top: 36px;
+    }
+
+    /* FLOATING POPUP OVERLAY LAYOUT */
+    .oec-form-section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(28, 26, 23, 0.7) !important;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .oec-form-section.modal-active {
+      display: flex !important;
+    }
+    .oec-form-section-modal-card {
+      background: #FFFFFF;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 48px;
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.18);
+    }
+    .modal-close-trigger {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: #9B7E6E;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .oec-form-intro {
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+    .oec-form-intro p {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #6B5C4E;
+      line-height: 1.7;
+    }
+    .oec-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .form-full { grid-column: 1 / -1; }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9B7E6E;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: #FAF8F5;
+      border: 0.5px solid #D8CFC7;
+      border-radius: 2px;
+      padding: 11px 14px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      color: #2A2218;
+    }
+    .form-group textarea { resize: none; height: 100px; }
+    .form-submit {
+      grid-column: 1 / -1;
+      text-align: right;
+      padding-top: 10px;
+    }
+
+    /* GENERAL BRAND FAQs */
+    .oec-faq {
+      padding: 80px 0;
+      border-top: 0.5px solid #E8E2DA;
+      background: #FAF8F5;
+    }
+    .oec-faq .oec-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .faq-item {
+      border-bottom: 0.5px solid #E8E2DA;
+      padding: 24px 0;
+    }
+    .faq-item:first-child { border-top: 0.5px solid #E8E2DA; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 500;
+      color: #2A2218;
+      margin-bottom: 10px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: #6B5C4E;
+      line-height: 1.7;
+    }
+
+    /* PREMIUM SOFT CHARCOAL BLACK FOOTER PRODUCTION BRAND RULES */
+    .oec-footer {
+      background: #1C1A17; /* Soft charcoal finish optimized for premium contrast vs pure black */
+      padding: 80px 0 32px;
+      color: #C4B8AE;
+    }
+    .oec-footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    }
+    .footer-logo-zone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      text-decoration: none;
+    }
+    .footer-logo {
+      font-family: 'Literata', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: #FAF8F5;
+    }
+    .footer-logo span { font-style: normal; color: #E09BAA; }
+    .footer-tagline {
+      font-size: 14px;
+      color: #9B8E84;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social-icon {
+      width: 36px; height: 36px;
+      border: 0.5px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #9B8E84;
+      font-size: 16px;
+    }
+    .footer-col h5 {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FAF8F5;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-links li a {
+      font-size: 14px;
+      color: #9B8E84;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+    .footer-links li a:hover {
+      color: #E09BAA;
+    }
+    .footer-contact p {
+      font-size: 14px;
+      color: #9B8E84;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .footer-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-cta-btn {
+      display: block;
+      text-align: center;
+      padding: 11px 18px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-radius: 2px;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .footer-cta-pink { background: #C07B8A; color: #fff; }
+    .footer-cta-outline { border: 0.5px solid rgba(255,255,255,0.2); color: #C4B8AE; }
+    .oec-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #6B5E56;
+      letter-spacing: 0.04em;
+    }
+
+    /* DECORATION COMPONENT ASSETS */
+    .pink-divider { height: 3px; background: #F2D0D7; width: 40px; border-radius: 2px; margin: 24px 0; }
+    .sage-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #8EA878; margin-right: 8px; vertical-align: middle; }
+
+    /* RUNTIME TRANSITIONS AND RESPONSIVE INTERACTION CONTROL ACTIONS */
+    .btn-primary, .btn-outline, .oec-nav-btn, .footer-cta-btn, .pricing-card, .gallery-cell, .social-icon, .footer-social-icon {
+      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+    .btn-primary:hover, .oec-nav-btn:hover, .footer-cta-pink:hover {
+      background: #A66271 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(192, 123, 138, 0.35);
+    }
+    .btn-outline:hover {
+      background: rgba(42, 34, 24, 0.05);
+      border-color: #C07B8A;
+      color: #C07B8A;
+    }
+    .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(0,0,0,0.06); }
+    .social-icon:hover { border-color: #C07B8A; color: #C07B8A; background: rgba(192,123,138,0.04); }
+    .footer-social-icon:hover { border-color: #E09BAA; color: #E09BAA; background: rgba(224,155,170,0.08); }
+
+    .oec-gallery-grid-secondary { display: none; opacity: 0; transition: opacity 0.4s ease; }
+    .oec-gallery-grid-secondary.is-open { display: grid !important; opacity: 1; }
+
+    /* ==========================================================================
+       FLUID MOBILE RESPONSIVENESS MEDIA QUERIES
+       ========================================================================= */
+    @media (max-width: 991px) {
+      .oec-container { padding: 0 24px; }
+      .oec-hero { grid-template-columns: 1fr; }
+      .oec-hero-left { padding: 60px 0; justify-self: start; max-width: 100%; }
+      .oec-hero-right { height: 360px; grid-row: 1; }
+      .oec-about { grid-template-columns: 1fr; }
+      .oec-about-content { padding: 60px 0; max-width: 100%; }
+      .oec-about-img { min-height: 340px; }
+      .oec-pricing-grid { grid-template-columns: 1fr; gap: 32px; }
+      .oec-how { grid-template-columns: 1fr; }
+      .oec-availability { padding: 60px 0; align-items: flex-start; border-right: none; border-bottom: 0.5px solid #E8E2DA; }
+      .oec-steps { padding: 60px 0; }
+      .oec-faq .oec-container { grid-template-columns: 1fr; gap: 32px; }
+      .oec-footer-top { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      .oec-nav-links li:not(:last-child) { display: none; }
+      .oec-gallery-grid, .oec-gallery-grid-secondary { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .oec-gallery-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .oec-social-strip .oec-container { flex-direction: column; gap: 16px; text-align: center; }
+      .oec-drop-cookies-row { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 16px; }
+      .oec-form { grid-template-columns: 1fr; }
+      .oec-form-section-modal-card { padding: 32px 20px; }
+      .form-submit { text-align: center; }
+      .form-submit .btn-primary { width: 100%; }
+      .oec-footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .oec-hero-h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="oec-page">
+
+    <!-- NAV -->
+    <nav class="oec-nav">
+      <div class="oec-container">
+        <a href="#" class="oec-logo-container">
+          <img src="cookie logo.jpg" alt="One Extra Cookie Logo" class="oec-logo-img">
+          <div class="oec-logo">one <span>extra</span> cookie</div>
+        </a>
+        <ul class="oec-nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#availability">Availability</a></li>
+          <li><a href="#" class="oec-nav-btn order-modal-trigger">Request an Order</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="oec-hero">
+      <div class="oec-hero-left">
+        <span class="oec-hero-eyebrow"><span class="sage-dot"></span>Custom Cookies · South Olathe, KS</span>
+        <h1 class="oec-hero-h1">Cookies that taste as good<br>as they <em>look.</em></h1>
+        <p class="oec-hero-sub">Handcrafted decorated sugar cookies made to order for your celebration, event, or gift — each one designed just for you.</p>
+        <div style="display:flex; gap:12px; flex-wrap: wrap;">
+          <a href="#" class="btn-primary order-modal-trigger">Request an Order</a>
+          <a href="#gallery" class="btn-outline">View Gallery</a>
+        </div>
+      </div>
+      <div class="oec-hero-right">
+        <div class="oec-hero-placeholder">
+          <i class="ti ti-photo" aria-hidden="true"></i>
+          <span>Tracy's hero cookie photo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="oec-about" id="about">
+      <div class="oec-about-img">
+        <i class="ti ti-user" aria-hidden="true"></i>
+        <span>Tracy headshot / kitchen photo</span>
+      </div>
+      <div class="oec-about-content">
+        <span class="section-label">About One Extra Cookie</span>
+        <h2 class="section-title">Made with intention.<br><em>Every single time.</em></h2>
+        <div class="pink-divider"></div>
+        <p>I've been creating custom decorated sugar cookies since 2019 — and I pour the same level of care into every single order, whether it's a dozen birthday cookies or a corporate gifting set of 200.</p>
+        <p style="margin-top:12px;">Every cookie I make is baked fresh using a treasured family recipe, individually wrapped in heat-sealed bags to lock in flavor, and designed from scratch to match your vision.</p>
+        <div class="oec-about-sig">— Tracy</div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="oec-gallery" id="gallery">
+      <div class="oec-container">
+        <div class="oec-gallery-header">
+          <div>
+            <span class="section-label">Gallery</span>
+            <h2 class="section-title">Where every detail<br><em>tells a story.</em></h2>
+          </div>
+          <a href="#gallery" class="view-more-toggle" style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#9B7E6E; text-decoration:none; font-weight:500;">View more <i class="ti ti-arrow-right" style="font-size:13px; vertical-align:-1px;" aria-hidden="true"></i></a>
+        </div>
+        <div class="oec-gallery-grid">
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Cookie photo 1</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Cookie photo 2</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Cookie photo 3</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Cookie photo 4</span></div>
+        </div>
+        <button class="view-more-toggle" id="galleryToggleBtn"><i class="ti ti-chevron-down" style="font-size:13px;" aria-hidden="true"></i> Show 8 more past creations</button>
+        <div class="oec-gallery-grid-secondary">
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Photo 5</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Photo 6</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Photo 7</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Photo 8</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Photo 9</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Photo 10</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Photo 11</span></div>
+          <div class="gallery-cell"><i class="ti ti-cookie" aria-hidden="true"></i><span>Photo 12</span></div>
+        </div>
+        <div class="oec-gallery-cta">
+          <a href="#" class="btn-primary order-modal-trigger">Request an Order</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL STRIP -->
+    <div class="oec-social-strip">
+      <div class="oec-container">
+        <p>See even more behind-the-scenes work on social.</p>
+        <div class="social-icons">
+          <div class="social-icon"><i class="ti ti-brand-instagram" aria-hidden="true"></i></div>
+          <div class="social-icon"><i class="ti ti-brand-facebook" aria-hidden="true"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <section class="oec-pricing" id="pricing">
+      <div class="oec-container">
+        <div class="oec-pricing-intro">
+          <span class="section-label">Pricing</span>
+          <h2 class="section-title">Menu Options.<br><em>Every occasion covered.</em></h2>
+          <p>Pricing is broken into tiers based on design complexity, so you only pay for the detail your event calls for. All orders include fresh-baked treats and individual heat-sealed packaging.</p>
+        </div>
+        <div class="oec-pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-card-img">
+              <i class="ti ti-cookie" aria-hidden="true"></i>
+              <span>Tier 1 image</span>
+            </div>
+            <div class="pricing-card-body">
+              <div class="pricing-tier-label">Tier 1 Sugar Cookies</div>
+              <div class="pricing-card-title">Simply Sweet</div>
+              <p class="pricing-card-desc">Clean, single-color flood with a simple design element. Perfect for large-quantity orders or casual celebrations.</p>
+              <div class="pricing-price"><span>From</span> $4.50 <span>/ cookie</span></div>
+            </div>
+          </div>
+          <div class="pricing-card" style="border-color:#C07B8A; border-width:1px;">
+            <div class="pricing-card-img" style="background:#F0D8DE;">
+              <i class="ti ti-cookie" aria-hidden="true"></i>
+              <span>Tier 2 image</span>
+            </div>
+            <div class="pricing-card-body">
+              <div class="pricing-tier-label" style="color:#C07B8A;">Tier 2 — Most Popular</div>
+              <div class="pricing-card-title">Detailed Design</div>
+              <p class="pricing-card-desc">Multi-color designs with piped details, shading, or texture work. Ideal for birthdays, baby showers, and themed events.</p>
+              <div class="pricing-price"><span>From</span> $7.50 <span>/ cookie</span></div>
+            </div>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-card-img">
+              <i class="ti ti-cookie" aria-hidden="true"></i>
+              <span>Tier 3 image</span>
+            </div>
+            <div class="pricing-card-body">
+              <div class="pricing-tier-label">Tier 3 Sugar Cookies</div>
+              <div class="pricing-card-title">Signature Artisan</div>
+              <p class="pricing-card-desc">Highly detailed, hand-painted, or portrait-style cookies. For weddings, corporate gifts, and truly one-of-a-kind moments.</p>
+              <div class="pricing-price"><span>From</span> $12.00 <span>/ cookie</span></div>
+            </div>
+          </div>
+
+          <!-- GOURMET DROP COOKIES ROW -->
+          <div class="oec-drop-cookies-row">
+            <div class="drop-cookie-icon-box">
+              <i class="ti ti-cookie-man" style="font-size:24px;"></i>
+              <span>Gourmet Line</span>
+            </div>
+            <div>
+              <div class="pricing-tier-label" style="color: #8EA878;">New Brand Expansion Line</div>
+              <h3 class="pricing-card-title" style="margin-bottom: 4px;">Gourmet Drop Cookies &amp; Custom Treats</h3>
+              <p class="pricing-card-desc" style="margin-bottom: 0;">Expanding beyond traditional custom sugar bases! We are now offering rich gourmet drop cookies in a deep variety of rotating seasonal flavors and specialty treat add-ons. Contact for detailed structural quotes and flavor lists.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <a href="#" class="btn-primary order-modal-trigger">Request an Order Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="oec-testimonial">
+      <p class="oec-testimonial-quote">"I gave Tracy a broad general topic and she blew every single one of my expectations out of the water. She researched designs, made something completely unique — and they tasted even better than they looked."</p>
+      <div class="oec-testimonial-author">Mary Beth &nbsp;·&nbsp; Returning Customer</div>
+    </section>
+
+    <!-- HOW IT WORKS + AVAILABILITY -->
+    <section class="oec-how" id="availability">
+      <div class="oec-availability">
+        <div class="oec-avail-inner">
+          <span class="section-label">Availability</span>
+          <h2 class="section-title" style="font-size:28px;">Check my<br><em>calendar.</em></h2>
+          <div class="oec-calendar-placeholder">
+            <i class="ti ti-calendar" aria-hidden="true"></i>
+            <span>Embedded availability calendar</span>
+            <span style="font-size:11px; opacity:0.6;">(public calendar plugin)</span>
+          </div>
+          <p class="oec-avail-note">Since all my orders are custom, I can't guarantee your date until I've reviewed your submission. I'll follow up within 48 hours to confirm.</p>
+        </div>
+      </div>
+      <div class="oec-steps" id="order">
+        <div class="oec-steps-inner">
+          <span class="section-label">How to Order</span>
+          <h2 class="section-title" style="font-size:28px;">Three simple<br><em>steps.</em></h2>
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Fill out the order form</h4>
+                <p>Tell me about your event, the date, how many cookies you need, and any design inspiration you have in mind.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>I'll confirm & collect your deposit</h4>
+                <p>I'll follow up personally to confirm availability, finalize the design details, and collect your deposit to secure your date.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Pick up your order</h4>
+                <p>Your cookies will be freshly baked and individually wrapped, ready for pickup at your confirmed date and time.</p>
+              </div>
+            </div>
+          </div>
+          <div class="oec-steps-cta">
+            <a href="#" class="btn-primary order-modal-trigger" style="width:100%; text-align:center; display:block; padding:14px 28px;">Request an Order</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER FORM MODAL -->
+    <section class="oec-form-section" id="orderLightboxModal">
+      <div class="oec-form-section-modal-card">
+        <button class="modal-close-trigger" id="closeModalBtn">&times;</button>
+        <div class="oec-form-intro">
+          <span class="section-label">Place Your Order</span>
+          <h2 class="section-title">Let's make something<br><em>beautiful.</em></h2>
+          <p>Fill out the form below and I'll get back to you within 48 hours to confirm availability, discuss your design, and get everything started.</p>
+        </div>
+        <div class="oec-form">
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" placeholder="First & last name">
+          </div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Phone number</label>
+            <input type="tel" placeholder="(555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label>Event date</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Preferred pickup date</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Backup pickup date (optional)</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Order type</label>
+            <select>
+              <option value="">Select all that apply...</option>
+              <option>Decorated sugar cookies</option>
+              <option>Drop cookies</option>
+              <option>Add-on treats</option>
+              <option>Multiple types</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Pricing tier</label>
+            <select>
+              <option value="">Select a tier...</option>
+              <option>Tier 1 — Simply Sweet ($4.50/cookie)</option>
+              <option>Tier 2 — Detailed Design ($7.50/cookie)</option>
+              <option>Tier 3 — Signature Artisan ($12.00/cookie)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Event type</label>
+            <input type="text" placeholder="Birthday, wedding, baby shower...">
+          </div>
+          <div class="form-group">
+            <label>Event theme / color scheme</label>
+            <input type="text" placeholder="Floral, woodland, pastel pink...">
+          </div>
+          <div class="form-group form-full">
+            <label>Additional details</label>
+            <textarea placeholder="Tell me anything else I should know — number of cookies, special designs, dietary needs, etc."></textarea>
+          </div>
+          <div class="form-submit">
+            <button class="btn-primary" type="button" id="submitFormMockBtn">Submit My Order Request</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="oec-faq" id="faqs">
+      <div class="oec-container">
+        <div>
+          <span class="section-label">FAQs</span>
+          <h2 class="section-title">Questions<br><em>answered.</em></h2>
+          <div class="pink-divider"></div>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">What is your pricing?</div>
+            <div class="faq-a">My cookies are priced in three tiers based on design complexity — starting at $4.50 per cookie for simple designs and up to $12.00 for signature artisan work. Minimum order quantities apply. See the full breakdown in the Pricing section above.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Do you have availability for my date?</div>
+            <div class="faq-a">You can check my current availability in the calendar above. Keep in mind that all my orders are custom, so I can't confirm your date until I've reviewed your submission. I respond to all inquiries within 48 hours.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Where are you located?</div>
+            <div class="faq-a">I'm based in South Olathe, Kansas. All orders are available for local pickup. I'm also able to ship for customers willing to cover shipping costs, though local pickup is preferred to ensure your cookies arrive in perfect condition.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="oec-footer">
+      <div class="oec-container">
+        <div class="oec-footer-top">
+          <div>
+            <a href="#" class="footer-logo-zone">
+              <img src="cookie logo.jpg" alt="One Extra Cookie Logo" class="oec-logo-img" style="border: 1px solid rgba(255,255,255,0.15);">
+              <div class="footer-logo">one <span>extra</span> cookie</div>
+            </a>
+            <p class="footer-tagline">Custom decorated sugar cookies — handcrafted in South Olathe, KS for your most memorable moments.</p>
+            <div class="footer-social">
+              <div class="footer-social-icon"><i class="ti ti-brand-instagram" aria-hidden="true"></i></div>
+              <div class="footer-social-icon"><i class="ti ti-brand-facebook" aria-hidden="true"></i></div>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h5>Navigate</h5>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#faqs">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-contact">
+            <h5>Get in Touch</h5>
+            <p>South Olathe, Kansas<br>oneextracookie@gmail.com</p>
+            <div class="footer-ctas">
+              <a href="#" class="footer-cta-btn footer-cta-pink order-modal-trigger">Request an Order</a>
+              <a href="#availability" class="footer-cta-btn footer-cta-outline">Check Availability</a>
+            </div>
+          </div>
+        </div>
+        <div class="oec-footer-bottom">
+          <span>© One Extra Cookie 2026 &nbsp;|&nbsp; All Rights Reserved</span>
+          <span>Site by HeiPro Digital</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- RUNTIME CONTROLS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Interactive Gallery Grid Row Toggle
+      const galleryBtn = document.getElementById('galleryToggleBtn');
+      const hiddenGalleryRow = document.querySelector('.oec-gallery-grid-secondary');
+      
+      if(galleryBtn && hiddenGalleryRow) {
+        galleryBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = hiddenGalleryRow.classList.toggle('is-open');
+          galleryBtn.innerHTML = isOpen ? 
+            '<i class="ti ti-chevron-up" style="font-size:13px;"></i> Hide secondary grid' : 
+            '<i class="ti ti-chevron-down" style="font-size:13px;"></i> Show 8 more past creations';
+        });
+      }
+
+      // 2. Lightbox Order Modal Visibility Interactions
+      const modalElement = document.getElementById('orderLightboxModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const triggerButtons = document.querySelectorAll('.order-modal-trigger');
+
+      triggerButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          modalElement.classList.add('modal-active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      if(closeBtn && modalElement) {
+        closeBtn.addEventListener('click', () => {
+          modalElement.classList.remove('modal-active');
+          document.body.style.overflow = '';
+        });
+
+        modalElement.addEventListener('click', (e) => {
+          if(e.target === modalElement) {
+            modalElement.classList.remove('modal-active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
+      // 3. Mock Form Submit Handling Rules
+      const mockSubmit = document.getElementById('submitFormMockBtn');
+      if(mockSubmit) {
+        mockSubmit.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('Form Submission Captured! Tracy will review your custom design and follow up within 48 business hours.');
+          modalElement.classList.remove('modal-active');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
